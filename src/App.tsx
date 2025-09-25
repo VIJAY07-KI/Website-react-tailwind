@@ -5,6 +5,11 @@ import Navbar from "./Components/Navbar"
 import Hero from "./Components/Hero"
 import TrustedBy from "./Components/TrustedBy"
 import Services from "./Components/Services"
+import OurWork from "./Components/OurWork"
+import Teams from "./Components/Teams"
+import ContactUs from "./Components/ContactUs"
+import Footer from "./Components/Footer"
+import {Toaster} from "react-hot-toast"
 
 const App: React.FC = () => {
   const [theme, setTheme] = useState<"light" | "dark">(
@@ -23,10 +28,15 @@ const App: React.FC = () => {
 
   return (
     <div className={`${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-white text-black'}min-h-screen transition-colors duration-300`}>
+     <Toaster/>
       <Navbar theme={theme} setTheme={setTheme} />
       <Hero />
       <TrustedBy />
       <Services />
+      <OurWork/>
+      <Teams/>
+      <ContactUs/>
+      <Footer theme={theme} setTheme={setTheme}/>
     </div>
   )
 }
