@@ -1,41 +1,52 @@
-import React from 'react'
-import Title from './Title'
-import { teamData } from '../assets/Assets'
+import React,{useState,useEffect} from "react";
+import Title from "./Title";
+import { teamData } from "../assets/Assets";
 
 type Team = {
-  image: string
-  name: string
-  title: string
-}
+  image: string;
+  name: string;
+  title: string;
+};
 
 const Teams: React.FC = () => {
+    const[isOn,setIson]=useState(localStorage.getItem('theme'))
+        useEffect(()=>{
+          setIson(localStorage.getItem('theme'))
+        })
   return (
-    <div className='flex flex-col items-center gap-7 px-4 sm:px-12 lg:px-24 xl:px-40 pt-30 text-gray-800 dark:text-white'>
-      <Title 
-        title='Meet the team' 
-        desc='A passionate team of digital experts dedicated to your brands success.' 
+    <div className={`flex flex-col items-center gap-7 px-4 sm:px-12 lg:px-24 xl:px-40 pt-30 ${isOn==='dark'?'text-white':"text-black"}`}>
+      <Title
+        title="Meet the team"
+        desc="A passionate team of digital experts dedicated to your brand's success."
       />
 
-      <div className='grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5'>
+      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5">
         {teamData.map((team: Team, index: number) => (
-          <div 
-            key={index} 
-            className='flex max-sm:flex-col items-center gap-5 p-4 rounded-xl border border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-xl shadow-gray-100 dark:shadow-white/5 hover:scale-103 transition-all duration-400'
+          <div
+            key={index}
+            className="flex max-sm:flex-col items-center gap-5 p-4 rounded-xl border 
+                       border-gray-200 dark:border-gray-700 
+                       bg-white text-black 
+                       dark:bg-black dark:text-white 
+                       shadow-xl shadow-gray-100 dark:shadow-white/5 
+                       hover:scale-103 transition-all duration-400"
           >
-            <img 
-              src={team.image} 
-              alt={team.name} 
-              className='w-12 h-12 rounded-full' 
+            <img
+              src={team.image}
+              alt={team.name}
+              className="w-12 h-12 rounded-full"
             />
-            <div className='flex-1'>
-              <h3 className='font-bold text-sm'>{team.name}</h3>
-              <p className='text-xs opacity-60'>{team.title}</p>
+            <div className="flex-1">
+              <h3 className="font-bold text-sm">{team.name}</h3>
+              <p className="text-xs opacity-60">{team.title}</p>
             </div>
           </div>
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Teams
+export default Teams;
+
+
