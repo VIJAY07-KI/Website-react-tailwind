@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from "react";
 import Title from "./Title";
 import { teamData } from "../assets/Assets";
+import {motion} from "motion/react"
 
 type Team = {
   image: string;
@@ -14,7 +15,13 @@ const Teams: React.FC = () => {
           setIson(localStorage.getItem('theme'))
         })
   return (
-    <div className={`flex flex-col items-center gap-7 px-4 sm:px-12 lg:px-24 xl:px-40 pt-30 ${isOn==='dark'?'text-white':"text-black"}`}>
+    <motion.div
+    initial="hidden"
+    whileInView="visible"
+    viewport={{once:true}}
+     
+    
+    className={`flex flex-col items-center gap-7 px-4 sm:px-12 lg:px-24 xl:px-40 pt-30 ${isOn==='dark'?'text-white':"text-black"}`}>
       <Title
         title="Meet the team"
         desc="A passionate team of digital experts dedicated to your brand's success."
@@ -22,7 +29,12 @@ const Teams: React.FC = () => {
 
       <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5">
         {teamData.map((team: Team, index: number) => (
-          <div
+          <motion.div
+          initial={{opacity:0,y:20}}
+          whileInView={{opacity:1,y:0}}
+          transition={{duration:0.4,delay:index * 0.1}}
+          viewport={{once:true}}
+
             key={index}
             className="flex max-sm:flex-col items-center gap-5 p-4 rounded-xl border 
                        border-gray-200 dark:border-gray-700 
@@ -40,10 +52,10 @@ const Teams: React.FC = () => {
               <h3 className="font-bold text-sm">{team.name}</h3>
               <p className="text-xs opacity-60">{team.title}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

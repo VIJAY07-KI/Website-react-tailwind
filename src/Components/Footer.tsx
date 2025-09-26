@@ -1,5 +1,6 @@
 import React from "react";
 import assets from "../assets/Assets";
+import {motion} from "motion/react";
 
 interface FooterProps {
   theme: "light" | "dark";
@@ -7,14 +8,25 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ theme }) => {
   return (
-    <footer
+    <motion.footer
+    initial={{opacity:0,y:50}}
+    whileInView={{opacity:1,y:0}}
+    transition={{duration:0.8}}
+    viewport={{once:true}}
+
       className={`pt-10 sm:pt-12 mt-20 sm:mt-40 px-4 sm:px-10 lg:px-24 xl:px-40 
         ${theme === "dark" ? "bg-gray-900 text-gray-400" : "bg-slate-50 text-gray-700"}`}
     >
       {/* Top Section */}
       <div className="flex flex-col lg:flex-row justify-between gap-10 lg:items-start">
         {/* Left - Logo + Text + Nav */}
-        <div className="flex flex-col items-start space-y-5 text-sm">
+        <motion.div 
+        initial={{opacity:0,x:-30}}
+        whileInView={{opacity:1,x:0}}
+        transition={{duration:0.6,delay: 0.2}}
+        viewport={{once:true}}
+
+        className="flex flex-col items-start space-y-5 text-sm">
           <img
             src={theme === "dark" ? assets.logo_dark : assets.logo}
             className="w-32 sm:w-44"
@@ -47,10 +59,16 @@ const Footer: React.FC<FooterProps> = ({ theme }) => {
               </a>
             </li>
           </ul>
-        </div>
+        </motion.div>
 
         {/* Right - Newsletter */}
-        <div className="w-full max-w-md">
+        <motion.div 
+        initial={{opacity:0,x:30}}
+        whileInView={{opacity:1,x:0}}
+        transition={{duration:0.6,delay: 0.3}}
+        viewport={{once:true}}
+        
+        className="w-full max-w-md">
           <h3 className="font-semibold">Subscribe to our newsletter</h3>
           <p className="text-sm mt-2 mb-6">
             The latest news, articles, and resources, sent to your inbox weekly.
@@ -69,11 +87,16 @@ const Footer: React.FC<FooterProps> = ({ theme }) => {
               Subscribe
             </button>
           </form>
-        </div>
+        </motion.div>
       </div>
 
       {/* Bottom Section */}
-      <div
+      <motion.div
+      initial={{opacity:0}}
+        whileInView={{opacity:1}}
+        transition={{duration:0.5,delay: 0.4}}
+        viewport={{once:true}}
+
         className={`mt-10 border-t pt-6 flex flex-col sm:flex-row justify-between items-center text-xs
         ${theme === "dark" ? "border-gray-700 text-gray-400" : "border-gray-200 text-gray-500"}`}
       >
@@ -87,8 +110,8 @@ const Footer: React.FC<FooterProps> = ({ theme }) => {
           <a href="#"><img src={assets.instagram_icon} alt="Instagram" className="w-5 hover:opacity-80 transition" /></a>
           <a href="#"><img src={assets.linkedin_icon} alt="LinkedIn" className="w-5 hover:opacity-80 transition" /></a>
         </div>
-      </div>
-    </footer>
+      </motion.div>
+    </motion.footer>
   );
 };
 

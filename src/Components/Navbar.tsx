@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import assets from "../assets/Assets"
 import ThemeToggleBtn from "./ThemeToggleBtn"
+import { motion } from "motion/react"
 
 interface NavbarProps {
   theme: "light" | "dark"
@@ -12,10 +13,11 @@ const Navbar: React.FC<NavbarProps> = ({ theme, setTheme }) => {
   console.log(theme)
 
   return (
-    <div
-      // className="flex justify-between items-center px-4 sm:px-12 lg:px-24 
-      // xl:px-40 py-4 sticky top-0 z-20 backdrop-blur-xl font-medium 
-      // bg-white/50 text-black dark:bg-gray-900/70 dark:text-white"
+    <motion.div 
+    initial={{opacity:0,y:-50}}
+    animate= {{opacity:1,y:0}}
+    transition={{duration:0.6,ease:"easeOut"}}
+      
 className={`flex justify-between items-center px-4 sm:px-12 lg:px-24 
   xl:px-40 py-4 sticky top-0 z-20 backdrop-blur-xl font-medium 
   ${theme === 'dark' ? 'bg-gray-900/70 text-white' : 'bg-white/50 text-black'}`}
@@ -77,7 +79,7 @@ className={`flex justify-between items-center px-4 sm:px-12 lg:px-24
           Connect <img src={assets.arrow_icon} width={14} alt="Arrow" />
         </a>
       </div>
-    </div>
+    </motion.div>
   )
 }
 

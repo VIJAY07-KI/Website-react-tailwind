@@ -2,6 +2,7 @@ import React,{useEffect,useState} from 'react'
 import assets from '../assets/Assets'
 import Title from './Title'
 import ServiceCard from './ServiceCard'
+import {motion} from "motion/react"
 
 const Services: React.FC = () => {
   // const dark = localStorage.getItem('theme')
@@ -34,7 +35,12 @@ const Services: React.FC = () => {
   ]
 
   return (
-    <div
+    <motion.div
+     initial="hidden"
+      whileInView="visible"
+      transition={{staggerChildren:0.2}}
+      viewport={{once:true}}
+
       id='services'
       className={`relative flex flex-col items-center gap-7 px-4 sm:px-12 
         lg:px-24 xl:px-40 pt-30 ${
@@ -58,7 +64,7 @@ const Services: React.FC = () => {
           <ServiceCard key={index} service={service} index={index} dark={isOn === 'dark'} />
         ))}
       </div>
-    </div>
+    </motion.div>
   )
 }
 

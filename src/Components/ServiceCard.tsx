@@ -1,6 +1,7 @@
 
 
 import React, { useState } from 'react'
+import {motion} from "motion/react"
 
 interface Service {
   icon: string
@@ -18,7 +19,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index, dark }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 })
 
   return (
-    <div className="m-2 sm:m-4 rounded-xl overflow-hidden group">
+    <motion.div
+    initial={{opacity:0,y:30}}
+    whileInView={{opacity:1,y:0}}
+    transition={{duration:0.5,delay:index * 0.2}}
+    viewport={{once:true}}
+
+
+    className="m-2 sm:m-4 rounded-xl overflow-hidden group">
       {/* Gradient border wrapper */}
       <div
         className={`rounded-xl p-[2px] transition-all duration-300
@@ -52,7 +60,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index, dark }) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
