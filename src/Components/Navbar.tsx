@@ -104,7 +104,7 @@ className={`flex justify-between items-center px-4 sm:px-12 lg:px-24
 
         <img
           alt="Menu Icon"
-          src={theme === "dark" ? assets.icon : assets.icon}
+          src={theme === "dark" ? assets.menu_icon_dark : assets.menu_icon}
           
           onClick={() => setSidebarOpen(true)}
           className="w-8 sm:hidden cursor-pointer"
