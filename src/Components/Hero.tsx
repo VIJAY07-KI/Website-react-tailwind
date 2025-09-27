@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
       </motion.div>
 
       {/* Heading with gradient */}
-      <motion.h1 
+      {/* <motion.h1 
       initial={{opacity:0,y:40}}
       whileInView={{opacity:1,y:0}}
       transition={{duration:0.6,delay:0.8}}
@@ -37,10 +37,26 @@ const Hero: React.FC = () => {
         Turning imagination into
         <br />
         <span className="bg-gradient-to-r from-[#5044E5] to-[#4d8cea] bg-clip-text text-transparent">
-          digital
-        </span>{" "}
-        impact
-      </motion.h1>
+          "Intelligent  AI  Solutions"
+        </span>{" "}  <br/>
+        that transform your world
+      </motion.h1> */}
+      <motion.h1 
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.8 }}
+  viewport={{ once: true }}
+  className="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-tight"
+>
+  Turning imagination into
+  <br />
+  <span className="bg-gradient-to-r from-[#5044E5] to-[#4d8cea] bg-clip-text text-transparent">
+    Intelligent AI Solutions
+  </span>
+  <br />
+  that drive innovation and impact
+</motion.h1>
+
       <motion.p 
       initial={{opacity:0,y:30}}
       whileInView={{opacity:1,y:0}}
@@ -48,7 +64,7 @@ const Hero: React.FC = () => {
       viewport={{once:true}}
       
       className={`text-sm sm:text-lg font-medium${isOn === 'dark' ? ' text-white' : ' text-black'}
-      max-w-4/5 sm:max-w-lg pb-3`}>Creating meaningful connections and turning big ideas into interactive digital experiences</motion.p>
+      max-w-4/5 sm:max-w-lg pb-3`}>Creating meaningful connections and turning big ideas into AI-powered interactive digital experiences.</motion.p>
 
       <motion.div 
       initial={{opacity:0,scale:0.9}}

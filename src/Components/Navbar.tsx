@@ -1,7 +1,12 @@
+
+
+
 import React, { useState } from "react"
 import assets from "../assets/Assets"
 import ThemeToggleBtn from "./ThemeToggleBtn"
 import { motion } from "motion/react"
+
+
 
 interface NavbarProps {
   theme: "light" | "dark"
@@ -24,11 +29,27 @@ className={`flex justify-between items-center px-4 sm:px-12 lg:px-24
 
     >
       {/* Logo */}
-      <img
-        src={theme === "dark" ? assets.logo_dark : assets.logo}
-        alt="App Logo"
-        className="w-32 sm:w-40"
-      />
+      
+{/* <div
+  className={`font-bold text-2xl sm:text-3xl cursor-pointer ${
+    theme === "dark" ? "logo-dark" : "logo-light"
+  }`}
+>
+  Algorithra.Ai
+</div> */}
+{/* <div className="font-bold text-2xl sm:text-3xl cursor-pointer text-primary">
+  Algorithra.Ai
+</div> */}
+
+{/* Stylish Blue Logo */}
+<div
+  className="text-primary text-3xl sm:text-4xl font-extrabold cursor-pointer"
+  style={{ fontFamily: "'Poppins', sans-serif" }}
+>
+  Algorithra.Ai
+</div>
+
+
 
       {/* Sidebar / Menu */}
       <div
@@ -61,27 +82,38 @@ className={`flex justify-between items-center px-4 sm:px-12 lg:px-24
         </a>
       </div>
 
-      {/* Right Side Icons */}
-      <div className="flex items-center gap-2 sm:gap-4">
+      
+      
+
+        {/* <a
+          href="#contact-us"
+          className="text-sm max-sm:hidden flex items-center gap-2 bg-primary text-white px-6 py-2 rounded-full cursor-pointer hover:scale-103 transition-all"
+        >
+          Contact Us
+        </a> */}
+        <a
+  href="#contact-us"
+  className="text-sm max-sm:hidden flex items-center gap-2 bg-primary text-white px-6 py-2 rounded-full cursor-pointer hover:scale-103 transition-all ml-100"
+>
+  Contact Us
+</a>
+
+
+        <div className="flex items-center gap-2 sm:gap-4">
         <ThemeToggleBtn theme={theme} setTheme={setTheme} />
 
         <img
           alt="Menu Icon"
-          src={theme === "dark" ? assets.menu_icon_dark : assets.menu_icon}
+          src={theme === "dark" ? assets.icon : assets.icon}
+          
           onClick={() => setSidebarOpen(true)}
           className="w-8 sm:hidden cursor-pointer"
         />
-
-        <a
-          href="#contact-us"
-          className="text-sm max-sm:hidden flex items-center gap-2 bg-primary text-white px-6 py-2 rounded-full cursor-pointer hover:scale-103 transition-all"
-        >
-          Connect <img src={assets.arrow_icon} width={14} alt="Arrow" />
-        </a>
       </div>
     </motion.div>
   )
 }
 
 export default Navbar
+
 

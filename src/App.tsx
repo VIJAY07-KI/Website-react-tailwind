@@ -4,7 +4,7 @@ import Hero from "./Components/Hero"
 import TrustedBy from "./Components/TrustedBy"
 import Services from "./Components/Services"
 import OurWork from "./Components/OurWork"
-import Teams from "./Components/Teams"
+// import Teams from "./Components/Teams"
 import ContactUs from "./Components/ContactUs"
 import Footer from "./Components/Footer"
 import { Toaster } from "react-hot-toast"
@@ -71,7 +71,7 @@ const App: React.FC = () => {
       <TrustedBy />
       <Services />
       <OurWork />
-      <Teams />
+      {/* <Teams /> */}
       <ContactUs />
       <Footer theme={theme} />
 

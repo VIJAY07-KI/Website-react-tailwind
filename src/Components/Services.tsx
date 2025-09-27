@@ -55,8 +55,7 @@ const Services: React.FC = () => {
 
       <Title
         title='How can we help?'
-        desc='From Strategy to Execution,
-         we craft digital solutions that move your business forward.'
+        desc='Our AI-powered digital solutions are designed to simplify complexity, unlock opportunities, and accelerate your growth.'
       />
 
       <div className='flex flex-col md:grid grid-cols-2'>
